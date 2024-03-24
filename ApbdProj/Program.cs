@@ -1,21 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
-public static int FindMaximumValue(int[] numbers)
+public static double CalculateAverage(int[] numbers)
 {
-    if (numbers == null || numbers.Length == 0)
+    double sum = 0;
+    foreach (int item in numbers) // Changed variable name from num to item
     {
-        throw new ArgumentException("The numbers array cannot be null or empty.", nameof(numbers));
+        sum += item;
     }
-
-    int maxValue = numbers[0];
-    foreach (var num in numbers)
-    {
-        if (num > maxValue)
-        {
-            maxValue = num;
-        }
-    }
-    return maxValue;
+    return numbers.Length > 0 ? sum / numbers.Length : 0;
 }
+
 
