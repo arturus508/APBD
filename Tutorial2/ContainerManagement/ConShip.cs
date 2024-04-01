@@ -83,6 +83,20 @@ public class ConShip
             Console.WriteLine($" - Type: {container.GetType().Name}, Serial: {container.SerialNumber}, Cargo Mass: {container.CargoMass} kg");
         }
     }
+    
+    public void PrintContainerInfo(string serialNumber)
+{
+    var container = Containers.FirstOrDefault(c => c.SerialNumber.Equals(serialNumber, StringComparison.OrdinalIgnoreCase));
+    if (container != null)
+    {
+        Console.WriteLine($"Container Details - Type: {container.GetType().Name}, Serial: {container.SerialNumber}, Cargo Mass: {container.CargoMass} kg");
+    }
+    else
+    {
+        Console.WriteLine($"No container found with serial number: {serialNumber}");
+    }
+}
+
 
     public void LoadContainers(List<ConBase> containers)
     {

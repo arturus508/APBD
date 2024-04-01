@@ -29,6 +29,18 @@ class Program
         Console.WriteLine("Loading multiple containers onto ship1:");
         ship1.LoadContainers(containersToLoad);
 
+        // Prepare a new container as a replacement
+        RefCon newRefrigeratedContainer = new RefCon(4) { TareWeight = 450, Temperature = -10 };
+        newRefrigeratedContainer.LoadCargo(3500);
+
+        // Replace a container on ship1 with the new one
+        Console.WriteLine($"\nReplacing the refrigerated container (Serial: {refrigeratedContainer.SerialNumber}) with a new one (Serial: {newRefrigeratedContainer.SerialNumber}):");
+        ship1.ReplaceContainer(refrigeratedContainer.SerialNumber, newRefrigeratedContainer);
+
+        // Print information for the new refrigerated container
+        Console.WriteLine("\nDetails of the new refrigerated container:");
+        ship1.PrintContainerInfo(newRefrigeratedContainer.SerialNumber);
+        
         // Print ship1's information
         Console.WriteLine("\nShip1's information after loading containers:");
         ship1.PrintShipInfo();
